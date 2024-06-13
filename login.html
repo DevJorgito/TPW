@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCN</title>
+  <link href="/stylesLogin.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="grid">
+    <div class="barras_horizontales logo">GCN</div>
+    <div class="content_img"><img src="../../Img/logo.png"></div>
+    <div class="content_form">
+      <form onsubmit="return validarFormulario()">
+        <h2>INGRESA TUS DATOS PARA <br>INICIAR SESIÓN</h2>
+        <input type="text" name="codigo" placeholder="Código" class="input"><br><br>
+        <input type="password" name="contraseña" placeholder="Contraseña" class="input "><br><br>
+        <a class="allign_rigth" href="RecuperarClave.html">Recuperar contraseña</a><br>
+        <input type="submit" value="Iniciar sesión" class="buttom">
+      </form>
+
+      <div class="allign_center">
+        <p class="help">¿Necesitas ayuda? ¡Escríbenos!</p>
+        <div class="content_icon">
+          <ion-icon name="logo-whatsapp" size="large"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="barras_horizontales foot allign_center terminos">
+      <a href="/Pages/html/Policy.html">Política de Privacidad</a>
+      <p>Gestor de Censo Nacional - Perú © 2024</p>
+    </div>
+
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script src="/Pages/JS/ScriptLogin.js"></script>
+</body>
+
+</html>

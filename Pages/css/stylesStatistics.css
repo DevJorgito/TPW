@@ -1,0 +1,243 @@
+/* Resetear los márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    background-attachment: fixed;
+    /* overflow-y: hidden; */ /* Eliminado para permitir el desplazamiento vertical */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar-links {
+    margin-right: 5%; /* Ajusta el margen derecho del encabezado derecho */
+    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+    margin-top: 1.8vw;
+    display: flex;
+}
+
+.navbar-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 2vw;
+    margin-top: 0.7vw;
+    font-size: 1.5vwpx;
+}
+
+.navbar-links button {
+    border: none;
+    background: none;
+    margin-top: 0; /* Ajusta el margen superior del botón */
+    margin-bottom: 0; /* Elimina el margen inferior del botón */
+}
+
+.navbar-links button img {
+    max-height: 3vh; /* Ajusta el alto máximo de la imagen */
+}
+
+.navbar-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.navbar-links button:hover img {
+    filter: brightness(70%); /* Oscurece ligeramente la imagen al pasar el mouse */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 2.083vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 2px); /* Ajusta la posición vertical para que esté justo debajo del botón */
+    left: 0; /* Ajusta la posición horizontal para que esté alineado con el botón */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2% 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+.dropbtn:focus + .dropdown-content,
+.dropdown-content:focus-within {
+    display: block; /* Muestra la lista desplegable cuando el botón tiene foco o la lista desplegable tiene un descendiente con foco */
+}
+
+.dropbtn {
+    width: 2.083vw; /* Define un ancho fijo para el botón */
+    height: 2.083vw; /* Define una altura fija para el botón */
+    padding: 0;
+    background: none;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+}
+
+.logo {
+    color: #E0E0E0;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+    font-family: 'Cinzel', serif;
+}
+
+.contenido {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px); /* Resta el tamaño de la barra de navegación */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* Asegura que esté detrás de los contenedores */
+}
+
+
+/* BARRA INFERIOR - PIE DE PÁGINA */
+.footer {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+    color: #999;
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.copyright {
+    font-size: 12px;
+}
+
+/* Extra */
+.contenedor_divs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 90vh;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.conten_grf {
+    width: 15%; /* Ajusta el tamaño en porcentaje para mayor flexibilidad */
+    height: 25%; /* Ajusta el tamaño en porcentaje para mayor flexibilidad */
+    background-color: #98e4b1;
+    margin: 1%; /* Añadido margen para separación entre elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 1s;
+    position: relative;
+    z-index: 1; /* Asegura que estén encima de la barra de navegación */
+    left: auto;
+    transform: none;
+}
+
+.conten_grf span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px; /* Tamaño de fuente adecuado */
+    font-weight: bold; /* Opcional: hace el texto más destacado */
+    z-index: 3; /* Asegura que el texto esté encima del contenedor */
+}
+
+.titulo {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(50, 140, 223);
+}
+
+.conten_grf:hover {
+    transform: scale(1.2); /* Mantiene solo la escala */
+    z-index: 3000;
+}
+
+span {
+    position: absolute;
+    top: 8px;
+    left: 40px;
+}
+
+/* Media Queries para hacer el diseño responsive */
+@media (max-width: 1200px) {
+    .conten_grf {
+        width: 18%; /* Reduce el tamaño para pantallas más pequeñas */
+        height: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor_divs {
+        flex-wrap: wrap; /* Permite el ajuste de la envoltura */
+        flex-direction: row; /* Mantiene la dirección en filas */
+        justify-content: space-around; /* Distribuye los elementos */
+    }
+
+    .conten_grf {
+        width: 30%; /* Ajusta el tamaño para pantallas aún más pequeñas */
+        height: 40%;
+        margin: 5px; /* Añade margen para separación entre elementos */
+    }
+}

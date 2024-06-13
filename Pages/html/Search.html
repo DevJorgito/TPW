@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCN</title>
+    <link rel="stylesheet" href="/Pages/css/stylesSearch.css">
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <div class="logo">GCN</div>
+        <div class="navbar-links">
+            <a href="/index.html">Inicio</a>
+            <a href="/Pages/html/Contact.html">Contacto</a>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="/Img/persona.png" alt="btnperfil" class="perfil"></button>
+                <div class="dropdown-content">
+                    <a href="/Pages/html/Profile.html">Perfil</a>
+                    <a href="#" id="logoutBtn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <img src="/Img/machu.jpg" alt="Imagen Machu Picchu">
+        <div class="tablas-contenedor">
+            <div class="tabla-contenedor izquierda">
+                <table class="tabla izquierda">
+                    <tr>
+                        <td align="center" class="regiones">REGIONES</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Amazonas</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Ancash</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Apurimac</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Arequipa</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Ayacucho</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Cajamarca</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Callao</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Cusco</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Huancavelica</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Huanuco</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Ica</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Junín</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>La Libertad</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Lambayeque</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Lima</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Loreto</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Madre de Dios</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Moquegua</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Pasco</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Piura</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Puno</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>San Martín</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Tacna</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Tumbes</td>
+                    </tr>
+                    <tr>
+                        <td align="left"><span class="icono">&#9658;</span>Ucayali</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tabla-contenedor derecha">
+                <table class="tabla derecha">
+                    <tr>
+                        <th align="center">REGISTRO DE CENSOS REALIZADOS EN EL PERÚ</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-wrapper">
+                                <input type="text" id="search-input" placeholder="Buscar el año, nombre o localidad del registro">
+                                <button id="search-button">
+                                    <img src="/Img/lupa.png" alt="Buscar">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="click-derecha">
+                                <table class="tabla-derecha">
+                                    <thead>
+                                        <tr>
+                                            <th>Año</th>
+                                            <th>Nombre</th>
+                                            <th>Localidad</th>
+                                            <th>Resultado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contenido-derecha">
+                                        <tr>
+                                            <td colspan="4">Seleccione una región de la tabla izquierda</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-links">
+            <a href="/Pages/html/Policy.html">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+            Gestor de Censo Nacional - Perú © 2024
+        </div>
+    </div>
+
+    <script src="/Pages/JS/ScriptSearch.js"></script>
+    <script src="/Pages/JS/ScriptBtn.js"></script>
+</body>
+
+</html>

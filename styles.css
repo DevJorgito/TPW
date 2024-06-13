@@ -1,0 +1,296 @@
+/* Resetear los márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+      font-family: 'Proxima Nova', sans-serif; /* Aplica la fuente Proxima Nova a todo el proyecto */
+      background-attachment: fixed;
+        overflow-y: hidden;
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%; /* La barra ocupa el 100% del ancho horizontal */
+    height: auto;
+    position: fixed; /* Para que la barra permanezca fija en la parte superior */
+    top: 0; /* Para que la barra esté en la parte superior */
+    left: 0; /* Para que la barra esté en la parte izquierda */
+    z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
+}
+
+.logo {
+    color:#E0E0E0;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+
+}
+
+.navbar-links {
+    margin-right: 5%; /* Ajusta el margen derecho del encabezado derecho */
+    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+    margin-top: 1.8vw;
+    display: flex;
+}
+
+.navbar-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 2vw;
+    margin-top: 0.7vw;
+    font-size: 1.5vwpx;
+}
+
+.navbar-links button {
+    border: none;
+    background: none;
+    margin-top: 0; /* Ajusta el margen superior del botón */
+    margin-bottom: 0; /* Elimina el margen inferior del botón */
+}
+
+.navbar-links button img {
+    max-height: 3vh; /* Ajusta el alto máximo de la imagen */
+}
+
+.navbar-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.navbar-links button:hover img {
+    filter: brightness(70%); /* Oscurece ligeramente la imagen al pasar el mouse */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 2.083vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 2px); /* Ajusta la posición vertical para que esté justo debajo del botón */
+    left: 0; /* Ajusta la posición horizontal para que esté alineado con el botón */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2% 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+.dropbtn:focus + .dropdown-content,
+.dropdown-content:focus-within {
+    display: block; /* Muestra la lista desplegable cuando el botón tiene foco o la lista desplegable tiene un descendiente con foco */
+}
+
+.dropbtn {
+    width: 2.083vw; /* Define un ancho fijo para el botón */
+    height: 2.083vw; /* Define una altura fija para el botón */
+    padding: 0;
+    background: none;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/*AJUSTAR FONDO MACHU PICCHU*/
+
+.contenido img {
+    width: 100%; /* Ajusta el ancho de la imagen para que ocupe todo el espacio disponible */
+    height: auto;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+.subtitulo {
+    text-align: center; /* Centra el texto */
+    position: absolute; /* Posiciona absolutamente el subtitulo */
+    top: 30%; /* Lo coloca en la mitad superior de la pantalla */
+    left: 50%; /* Lo coloca en el centro horizontal */
+    transform: translate(-50%, -50%); /* Lo centra verticalmente */
+    z-index: 1; /* Asegura que esté encima de la imagen de fondo */
+    color:#FFFFFF;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4vw;
+    letter-spacing: 0.5vw;
+    margin-bottom: 0.521vw;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente los botones */
+    position: absolute; /* Posiciona absolutamente los botones */
+    top: 50%; /* Lo coloca en la mitad superior de la pantalla */
+    left: 50%; /* Lo coloca en el centro horizontal */
+    transform: translate(-50%, -50%); /* Lo centra verticalmente */
+    z-index: 1; /* Asegura que esté encima de la imagen de fondo */
+    margin-top: 2.5em;
+}
+
+.botones:hover{
+    color: white;
+}
+
+
+
+.grupo-botones1{
+    display: flex;
+    margin-bottom: 0.521vw; /* Espacio entre los grupos de botones */
+    margin-top: 2.083vw;
+}
+
+.grupo-botones2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.26vw; /* Espacio entre los grupos de botones */
+    margin-top: 1.563vw;
+}
+
+.grupo-botones2 .btn {
+    padding: 10px 20px;
+    margin-bottom: 0.26vw;
+    text-align: center;
+    width: auto;
+}
+
+
+
+.btn {
+    padding: 0.521vw 1.915vw;/* Aumenta el padding horizontal para hacer los botones más largos */
+    margin: 0 3.125vw; /* Espacio entre los botones */
+    border: none;
+    background-color: white;
+    color: black;
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 0.781vw;
+    letter-spacing: 0.052vw;
+    text-decoration: none;
+}
+
+
+.btn:hover {
+    background-color: black; /* Cambia el color del texto a negro cuando se pasa el mouse por encima */
+    color: white;
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+/*BARRA INFERIOR - PIE DE PÁGINA*/
+.footer {
+    background-color:#080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 1% 2%;
+    width: 100%;
+    height: auto; /* Altura de la barra de pie de página */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 0.521vw; /* Agrega espacio entre el enlace y el texto */
+
+}
+
+.footer-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 0.729vw;
+}
+
+/* Estilo para el texto de derechos de autor */
+.copyright {
+    font-size: 0.729vw;
+}
+
+
+.boton-descripcion {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin: 0 0.521vw; /* Espacio entre los botones */
+}
+
+.descripcion {
+    margin-top: 1.042vw; /* Espacio entre la descripción y el botón */
+    padding: 0.781vw; /* Espaciado interno para el recuadro del texto */
+    background-color: rgba(249, 249, 249, 0); /* Color de fondo del recuadro completamente transparente */
+    border: none; /* Borde del recuadro */
+    font-size: 0.677vw; /* Tamaño de fuente del texto */
+    color: #FFFFFF; /* Color del texto */
+    width: 15.625vw; /* Ancho del recuadro de texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    display: inline-block; /* Hace que el contenedor se ajuste al contenido */
+    letter-spacing: 0.052vw;
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+/*BARRA INFERIOR - PIE DE PÁGINA*/
+.footer {
+    background-color:#080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 1% 2%;
+    width: 100%;
+    height: auto; /* Altura de la barra de pie de página */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 0.521vw; /* Agrega espacio entre el enlace y el texto */
+
+}
+
+.footer-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 0.729vw;
+}
+
+/* Estilo para el texto de derechos de autor */
+.copyright {
+    font-size: 0.729vw;
+}

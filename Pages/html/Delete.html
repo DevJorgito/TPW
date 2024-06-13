@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Elementos</title>
+    <link rel="stylesheet" href="/Pages/css/stylesDelete.css">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <div class="logo">GCN</div>
+        <div class="navbar-links">
+            <a href="/index.html">Inicio</a>
+            <a href="/Pages/html/Contact.html">Contacto</a>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="/Img/persona.png" alt="btnperfil" class="perfil"></button>
+                <div class="dropdown-content">
+                    <a href="/Pages/html/Profile.html">Perfil</a>
+                    <a href="#" id="logoutBtn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <div class="subtitulo">
+            <h2>ELIMINAR ELEMENTOS DEL CENSO</h2>
+        </div>
+
+        <div class="form-container">
+            <form id="eliminarForm">
+                <label for="tipoElemento">Selecciona el tipo de elemento que deseas eliminar:</label>
+                <select name="tipo_elemento" id="tipoElemento">
+                    <option value="">Selecciona...</option>
+                    <option value="vivienda">Vivienda</option>
+                    <option value="hogar">Hogar</option>
+                    <option value="persona">Persona</option>
+                </select>
+                <div id="idElementoDiv" style="display: none;">
+                    <label for="idElemento">ID del elemento:</label>
+                    <input type="text" name="id_elemento" id="idElemento" placeholder="ID del elemento">
+                </div>
+                <div id="camposElemento" style="display: none;"></div>
+                <input type="submit" value="Eliminar">
+            </form>
+        </div>
+    </div>
+
+    <script src="/Pages/JS/ScriptDelete.js"></script>
+    <script src="/Pages/JS/ScriptBtn.js"></script>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="../html/Policy.html">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+            Gestor de Censo Nacional - Perú © 2024
+        </div>
+    </div>
+</body>
+</html>

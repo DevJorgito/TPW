@@ -1,0 +1,207 @@
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    margin: 0;
+    overflow-y: auto; /* Permitir el desplazamiento vertical */
+}
+
+.navbar {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: #E0E0E0;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+    font-family: 'Cinzel', serif;
+}
+
+.navbar-links {
+    margin-right: 5%;
+    font-family: 'Cinzel', serif;
+    margin-top: 1.8vw;
+    display: flex;
+}
+
+.navbar-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 2vw;
+    margin-top: 0.7vw;
+    font-size: 1.5vwpx;
+}
+
+.navbar-links button {
+    border: none;
+    background: none;
+}
+
+.navbar-links button img {
+    max-height: 3vh;
+}
+
+.navbar-links a:hover {
+    color: #999;
+}
+
+.navbar-links button:hover img {
+    filter: brightness(70%);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 2px);
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropbtn:focus + .dropdown-content,
+.dropdown-content:focus-within {
+    display: block;
+}
+
+.dropbtn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.contenido {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Asegurar que cubra toda la ventana */
+    background: url('/Img/machu.jpg') no-repeat center center/cover;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8vw;
+    letter-spacing: 0.5vw;
+    position: absolute;
+    top: 20%; /* Ajustar según sea necesario */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-container {
+    width: 60%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top:60%; /* Ajustar según sea necesario */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+    max-height: 60%; /* Ajustar según sea necesario */
+    overflow-y: auto; /* Permitir el desplazamiento vertical dentro del contenedor */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: #333;
+    width: 80%;
+}
+
+select,
+input[type="text"],
+input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/*BARRA INFERIOR - PIE DE PÁGINA*/
+.footer {
+    background-color:#080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 1% 2%;
+    width: 100%;
+    height: auto; /* Altura de la barra de pie de página */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 0.521vw; /* Agrega espacio entre el enlace y el texto */
+
+}
+
+.footer-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 0.729vw;
+}
+
+/* Estilo para el texto de derechos de autor */
+.copyright {
+    font-size: 0.729vw;
+}
+

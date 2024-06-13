@@ -1,0 +1,207 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color:#CBE4D6; 
+    align-items: center;
+
+}
+
+.grid{
+    width: 100%; /* Utiliza el 100% del ancho del contenedor padre */
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 5% 10% 15% 20% 5% 25% 10% 10%;  
+    grid-template-rows: 15% 10% 57% 8% 10%;  
+    position: relative;
+ }
+
+h2{
+
+   color:#4A4A4A;
+}
+
+img{
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+}
+
+.content_img {
+    grid-column: 3/5;
+    grid-row: 3/4;
+    overflow: hidden; /* Evita que los contenidos se salgan del contenedor */
+    position: relative; /* Establece posición relativa para usar posición absoluta en el hijo */
+  }
+
+
+.content_img img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    
+}
+
+  
+  
+.content_form{
+    grid-column: 6/8;
+    grid-row: 3/4;
+    min-width: 300px;
+    max-width: 400px;
+    
+}
+.barras_horizontales{
+   grid-column: 1/10;
+   background-color: #080808;
+   color: white;
+   
+}
+.foot{
+    background-color:#080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 10px 20px;
+    width: 100%;
+    height: 75px; /* Altura de la barra de pie de página */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.input{
+    width: 80%;
+    height: 30px;
+}
+
+
+.buttom{
+    background-color: black;
+    color: white;
+    width: 110px;
+    height: 35px;
+}
+
+
+
+.allign_rigth{
+    text-align: right;
+    display: block;
+    position: relative;
+    right: 70px;
+    text-decoration: none;
+    color:#080808;
+}
+
+.allign_rigth:hover{
+    color: #999;
+
+}
+
+.allign_center{
+    text-align: center;
+    padding: 3px;
+    margin-top: 40px;
+}
+.help{
+    color: #4A4A4A;
+    font-size: 18px;
+    font-family: 'Proxima Nova', sans-serif;
+    letter-spacing: 1px;
+}    
+
+
+
+
+
+@media (max-width:710px){
+    .content_form{
+        grid-column: 2/5;
+    }
+    .content_img{
+        grid-column: 2/4;
+        position: relative;
+        right: 20px;
+        z-index: -1;
+    }
+    .input{
+        width: 90%;
+    }
+    .allign_rigth{
+        right: 25px;
+    }
+}
+/* Ajustes para dispositivos más pequeños */
+@media (max-width: 500px){
+    .grid{
+        grid-template-columns: 5% 15% 25% 15% 5% 25% 5% 5%; /* Modifica las columnas para ocupar más espacio en dispositivos pequeños */
+    }
+    .content_img{
+        display: none; /* Oculta la imagen en dispositivos muy pequeños */
+    }
+}
+
+
+.buttom:hover{
+    background-color: rgb(49, 47, 47);
+    cursor: pointer;
+}   
+
+form + div{
+   width: 85%;
+}   
+.content_icon{
+    background-color: white;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    padding-top: 5px;
+    color: #aeecc3;
+    border-radius: 5pc;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0,0.1);
+}
+
+.content_icon:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.logo{
+    color:#E0E0E0;
+    padding: 50px 0px 0px 60px;
+    font-size: 30px;
+    font-family: 'Cinzel', serif;
+}
+
+.terminos a{
+    font-family: 'Proxima Nova', sans-serif;
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+.terminos{
+    font-family: 'Proxima Nova', sans-serif;
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+
+
+input::placeholder{
+        color: #999; /* Cambia el color del marcador de posición */
+}
+
+
+.terminos a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+    
+}

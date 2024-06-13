@@ -1,0 +1,290 @@
+/* Resetear los márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    background-attachment: fixed;
+    overflow-y: hidden;
+    padding-bottom: 20px; /* Ajusta este valor para cambiar la separación inferior */
+}
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar-links {
+    margin-right: 5%;
+    font-family: 'Cinzel', serif;
+    margin-top: 1.8vw;
+    display: flex;
+}
+
+.navbar-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 2vw;
+    margin-top: 0.7vw;
+    font-size: 1.5vwpx;
+}
+
+.navbar-links button {
+    border: none;
+    background: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar-links button img {
+    max-height: 3vh;
+}
+
+.navbar-links a:hover {
+    color: #999;
+}
+
+.navbar-links button:hover img {
+    filter: brightness(70%);
+}
+
+/* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 2.083vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 2px);
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2% 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropbtn:focus + .dropdown-content,
+.dropdown-content:focus-within {
+    display: block;
+}
+
+.dropbtn {
+    width: 2.083vw;
+    height: 2.083vw;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logo {
+    color: #E0E0E0;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+    font-family: 'Cinzel', serif;
+}
+
+.contenido {
+    position: relative;
+}
+
+.contenido img {
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
+}
+
+.tablas-contenedor {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    gap: 1%; /* Reducir espacio horizontal entre tablas */
+    height: 80vh; /* Ajustar la altura del contenedor de tablas */
+    margin-bottom: 10px; /* Ajusta este valor para cambiar la separación inferior */
+}
+
+.tabla-contenedor {
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left;
+    max-height: calc(100% - 40px); /* Ajusta este valor según el margen y padding */
+    overflow-y: auto; /* Asegurar el scroll dentro de la tabla */
+    margin-bottom: 35px;
+}
+
+.izquierda {
+    width: 15%;
+    margin-right: 1%;
+    max-height: 100%; /* Limitar la altura máxima */
+    overflow-y: auto; /* Permitir scroll vertical */
+    padding-right: 10px; /* Añadir padding para el scroll */
+    border-bottom-width: 1px; /* Ajusta el tamaño del borde inferior si es necesario */
+}
+
+.derecha {
+    width: 100%;
+}
+
+.tabla.derecha th {
+    font-size: 2em; /* Ajusta este valor al tamaño deseado */
+    font-weight: bold; /* Puedes añadir esto para hacer el texto en negrita */
+}
+
+.tabla td, .tabla th {
+    padding: 17px;
+    border-bottom: 1px solid #ddd; /* Ajusta este valor para cambiar el tamaño del borde */
+    cursor: pointer;
+}
+
+.tabla.izquierda td:hover {
+    font-weight: bold;
+    transform: scale(1.05);
+    transition: transform 0.2s, font-weight 0.2s;
+}
+
+/* Estilo para los iconos */
+.icono {
+    margin-right: 8px;
+}
+
+.regiones {
+    font-weight: bold;
+    cursor: default;
+}
+
+/* BARRA INFERIOR - PIE DE PÁGINA */
+.footer {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+    color: #999;
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.copyright {
+    font-size: 12px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#search-button img {
+    width: 40px;
+    height: 40px;
+}
+
+.click-derecha {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tabla-derecha {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-derecha th,
+.tabla-derecha td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 15px;
+}
+.tabla-derecha th,
+.tabla-derecha td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.tabla-derecha th:nth-child(1),
+.tabla-derecha td:nth-child(1) {
+    width: 8%; /* Ajusta el tamaño de la columna "Año" */
+}
+
+.tabla-derecha th:nth-child(2),
+.tabla-derecha td:nth-child(2) {
+    width: 30%; /* Ajusta el tamaño de la columna "Nombre" */
+}
+
+.tabla-derecha th:nth-child(3),
+.tabla-derecha td:nth-child(3) {
+    width: 20%; /* Ajusta el tamaño de la columna "Localidad" */
+}
+
+.tabla-derecha th:nth-child(4),
+.tabla-derecha td:nth-child(4) {
+    width: 10%; /* Ajusta el tamaño de la columna "Resultado" */
+}

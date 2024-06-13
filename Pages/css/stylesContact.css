@@ -1,0 +1,305 @@
+/* Resetear los márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    background-attachment: fixed;
+    overflow-y: hidden;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.navbar-links {
+    margin-right: 5%; /* Ajusta el margen derecho del encabezado derecho */
+    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+    margin-top: 1.8vw;
+    display: flex;
+}
+
+.navbar-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 2vw;
+    margin-top: 0.7vw;
+    font-size: 1.5vwpx;
+}
+
+.navbar-links button {
+    border: none;
+    background: none;
+    margin-top: 0; /* Ajusta el margen superior del botón */
+    margin-bottom: 0; /* Elimina el margen inferior del botón */
+}
+
+.navbar-links button img {
+    max-height: 3vh; /* Ajusta el alto máximo de la imagen */
+}
+
+.navbar-links a:hover {
+    color: #999; /* Cambia el color del texto al pasar el mouse */
+}
+
+.navbar-links button:hover img {
+    filter: brightness(70%); /* Oscurece ligeramente la imagen al pasar el mouse */
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 2.083vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: calc(100% + 2px); /* Ajusta la posición vertical para que esté justo debajo del botón */
+    left: 0; /* Ajusta la posición horizontal para que esté alineado con el botón */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2% 4%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+.dropbtn:focus + .dropdown-content,
+.dropdown-content:focus-within {
+    display: block; /* Muestra la lista desplegable cuando el botón tiene foco o la lista desplegable tiene un descendiente con foco */
+}
+
+.dropbtn {
+    width: 2.083vw; /* Define un ancho fijo para el botón */
+    height: 2.083vw; /* Define una altura fija para el botón */
+    padding: 0;
+    background: none;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+}
+
+.logo {
+    color: #E0E0E0;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+    font-family: 'Cinzel', serif;
+}
+
+.contenido {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté delante de la imagen de fondo */
+}
+
+.contenido img {
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
+
+}
+
+/* BARRA INFERIOR - PIE DE PÁGINA */
+.footer {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 2%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+    color: #999;
+}
+
+.footer-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.copyright {
+    font-size: 12px;
+}
+
+.help-section {
+    background-color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.help-header h1 {
+    font-size: 30px;
+    color: #E74C3C;
+}
+
+.help-banner img {
+    width: 10%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.customer-service {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.customer-service h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.service-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.service-option {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.service-option img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.service-option p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.experience-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.experience-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.experience-section p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #555;
+}
+
+.experience-section a {
+    color: #E74C3C;
+    text-decoration: none;
+}
+
+.experience-section a:hover {
+    text-decoration: underline;
+}
+
+.experience-image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.help-section,
+.customer-service,
+.experience-section {
+    position: absolute;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    top: 50%; /* Coloca el elemento en la mitad superior de la pantalla */
+    transform: translateY(-50%); /* Lo desplaza hacia arriba la mitad de su altura */
+    z-index: 2; /* Asegura que estén delante de la imagen de fondo */
+    text-align: center; /* Opcional: centrar el contenido */
+}
+
+
+.help-section {
+    background-color: rgba(255, 255, 255, 0);
+    border: none; /* Asegura que no haya borde */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: none; /* Elimina cualquier sombra */
+    position: absolute;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    top: 20%; /* Ajusta la posición vertical de la sección de ayuda */
+    transform: translateY(-50%); /* Lo desplaza hacia arriba la mitad de su altura */
+    z-index: 2; /* Asegura que estén delante de la imagen de fondo */
+    text-align: center; /* Opcional: centrar el contenido */
+}
+
+
+.customer-service {
+    border: none;
+    top: 50%; /* Ajusta la posición vertical de la sección de atención al cliente */
+}
+
+.experience-section {
+    background-color: rgba(255, 255, 255, 0);
+    top: 80%; /* Ajusta la posición vertical de la sección de experiencia */
+    color: #fff;
+}
+
+.experience-section p{
+    color: #fff;
+}
+
+.help-banner{
+    margin-top: 60px;
+}
+
+.customer-service h2 {
+    color: #fff; /* Cambiar el color del texto a blanco */
+}

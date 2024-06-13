@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCN</title>
+    <link rel="stylesheet" href="/Pages/css/stylesAdd.css">
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <div class="logo">GCN</div>
+        <div class="navbar-links">
+            <a href="../../index.html">Inicio</a>
+            <a href="/Pages/html/Contact.html">Contacto</a>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="../../img/persona.png" alt="btnperfil" class="perfil"></button>
+                <div class="dropdown-content">
+                    <a href="/Pages/html/Profile.html">Perfil</a>
+                    <a href="../Pages/html/login.html" id="logoutBtn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <!-- Contenido y formulario -->
+        <div class="contenido">
+            <img src="../../img/machu.jpg">
+        </div>
+
+        <div class="form-container">
+            <div class="selection">
+                <label for="category" class="text">¿Qué desea agregar?</label>
+                <select id="category" onchange="showFields()">
+                    <option value="persona">Persona</option>
+                    <option value="vivienda">Vivienda</option>
+                    <option value="hogar">Hogar</option>
+                </select>
+            </div>
+
+            <div class="form-fields" id="formFields">
+                <!-- Los campos se mostrarán aquí según la selección del usuario -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="../html/Policy.html">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+            Gestor de Censo Nacional - Perú © 2024
+        </div>
+    </div>
+
+    <script src="/Pages/JS/ScriptAdd.js"></script>
+    <script src="/Pages/JS/ScriptBtn.js"></script>
+    
+</body>
+
+</html>
