@@ -114,14 +114,14 @@ function buscarPorID() {
         .then(response => response.json())
         .then(data => {
             if (data) {
-                cargarCampos(entidad, data);
+                cargarCampos(entidad, data); // Cargar campos del formulario
+                cargarTablaDatos(data); // Mostrar datos en la tabla
             } else {
                 alert('No se encontraron datos para el ID proporcionado');
             }
         })
         .catch(error => console.error('Error:', error));
 }
-
 document.getElementById('modificarForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -198,3 +198,23 @@ document.getElementById('modificarForm').addEventListener('submit', function(e) 
     console.log(`Modificando el elemento con ID ${id} en la entidad ${entidad}:`, data);
     alert('Datos modificados exitosamente (simulado)');
 });
+
+function cargarTablaDatos(data) {
+    const tabla = document.getElementById('datosEntidad');
+    tabla.innerHTML = ''; // Limpiar tabla anterior
+
+    // Crear filas de la tabla con los datos recibidos
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            tabla.innerHTML += `
+                <tr>
+                    <td>${key}</td>
+                    <td>${data[key]}</td>
+                </tr>
+            `;
+        }
+    }
+
+    // Mostrar la tabla
+    document.getElementById('tablaDatos').style.display = 'block';
+}

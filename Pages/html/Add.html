@@ -28,26 +28,174 @@
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Contenido y formulario -->
-        <div class="contenido">
-            <img src="../../img/machu.jpg">
-        </div>
 
         <div class="form-container">
-            <div class="selection">
-                <label for="category" class="text">¿Qué desea agregar?</label>
-                <select id="category" onchange="showFields()">
-                    <option value="persona">Persona</option>
-                    <option value="vivienda">Vivienda</option>
-                    <option value="hogar">Hogar</option>
-                </select>
-            </div>
+            <h2 class="agregacion-info">Agregación de Información</h2>
 
             <div class="form-fields" id="formFields">
-                <!-- Los campos se mostrarán aquí según la selección del usuario -->
+                <form action="/Pages/php/add.php" method="post">
+                    <div class="form-row">
+                        <label for="dni" class="label-bold">DNI:</label>
+                        <input type="text" name="dni">
+                    </div>
+                    <div class="form-row">
+                        <label for="numHogar" class="label-bold">Número de Hogar:</label>
+                        <input type="text" name="numHogar">
+                    </div>
+                    <div class="form-row">
+                        <label for="numPersona" class="label-bold">Número de Persona:</label>
+                        <input type="text" name="numPersona">
+                    </div>
+                    <div class="form-row">
+                        <label for="nombres" class="label-bold">Nombres:</label>
+                        <input type="text" name="nombres">
+                    </div>
+                    <div class="form-row">
+                        <label for="apellidos" class="label-bold">Apellidos:</label>
+                        <input type="text" name="apellidos">
+                    </div>
+                    <div class="form-row">
+                        <label for="sexo" class="label-bold">Sexo:</label>
+                        <select name="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="fechaNacimiento" class="label-bold">Fecha de Nacimiento:</label>
+                        <input type="text" name="fechaNacimiento">
+                    </div>
+                    <div class="form-row">
+                        <label for="estadoCivil" class="label-bold">Estado Civil:</label>
+                        <select name="estadoCivil">
+                            <option value="Soltero">Soltero</option>
+                            <option value="Casado">Casado</option>
+                            <option value="Viudo">Viudo</option>
+                            <option value="Divorciado">Divorciado</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="religion" class="label-bold">Religión:</label>
+                        <select name="religion">
+                            <option value="Católica">Católica</option>
+                            <option value="Protestante">Protestante</option>
+                            <option value="Judía">Judía</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="nivelEducativo" class="label-bold">Nivel Educativo:</label>
+                        <select name="nivelEducativo">
+                            <option value="Primaria">Primaria</option>
+                            <option value="Secundaria">Secundaria</option>
+                            <option value="Universitario">Universitario</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="totalHijos" class="label-bold">Total de Hijos:</label>
+                        <input type="text" name="totalHijos">
+                    </div>
+                    <div class="form-row">
+                        <label for="ID_Vivienda" class="label-bold">ID Vivienda:</label>
+                        <input type="text" name="IDVivienda">
+                    </div>
+                    <div class="form-row">
+                        <label for="tipoVivienda" class="label-bold">Tipo de Vivienda:</label>
+                        <select name="tipoVivienda">
+                            <option value="Particular">Particular</option>
+                            <option value="Colectiva">Colectiva</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="condicion" class="label-bold">Condición:</label>
+                        <select name="condicion">
+                            <option value="Ocupada">Ocupada</option>
+                            <option value="Desocupada">Desocupada</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="origenAgua" class="label-bold">Origen del Agua:</label>
+                        <select name="origenAgua">
+                            <option value="Red pública">Red pública</option>
+                            <option value="Pozo">Pozo</option>
+                            <option value="Rio">Río</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="tipoBano" class="label-bold">Tipo de Baño:</label>
+                        <select name="tipoBano">
+                            <option value="Privado">Privado</option>
+                            <option value="Compartido">Compartido</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="totalHabitaciones" class="label-bold">Total de Habitaciones:</label>
+                        <input type="text" name="totalHabitaciones">
+                    </div>
+                    <div class="form-row">
+                        <label for="departamento" class="label-bold">Departamento:</label>
+                        <input type="text" name="departamento">
+                    </div>
+                    <div class="form-row">
+                        <label for="provincia" class="label-bold">Provincia:</label>
+                        <input type="text" name="provincia">
+                    </div>
+                    <div class="form-row">
+                        <label for="distrito" class="label-bold">Distrito:</label>
+                        <input type="text" name="distrito">
+                    </div>
+                    <div class="form-row">
+                        <label for="calle" class="label-bold">Calle:</label>
+                        <input type="text" name="calle">
+                    </div>
+                    <div class="form-row">
+                        <label for="materialParedes" class="label-bold">Material de las Paredes:</label>
+                        <select name="materialParedes">
+                            <option value="Ladrillo">Ladrillo</option>
+                            <option value="Adobe">Adobe</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="materialTechos" class="label-bold">Material de los Techos:</label>
+                        <select name="materialTechos">
+                            <option value="Concreto">Concreto</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Calamina">Calamina</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="materialPisos" class="label-bold">Material de los Pisos:</label>
+                        <select name="materialPisos">
+                            <option value="Ceramica">Cerámica</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Tierra">Tierra</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="tipoCombustible" class="label-bold">Tipo de Combustible:</label>
+                        <select name="tipoCombustible">
+                            <option value="Electricidad">Electricidad</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Carbón">Carbón</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="numeroMiembros" class="label-bold">Número de Miembros:</label>
+                        <input type="text" name="numeroMiembros">
+                    </div>
+                    <button type="submit" name="submit">Enviar</button>
+                </form>
             </div>
         </div>
     </div>
 
+    <!-- Pie de Página -->
     <div class="footer">
         <div class="footer-links">
             <a href="../html/Policy.html">Política de Privacidad</a>
@@ -56,10 +204,8 @@
             Gestor de Censo Nacional - Perú © 2024
         </div>
     </div>
-
     <script src="/Pages/JS/ScriptAdd.js"></script>
     <script src="/Pages/JS/ScriptBtn.js"></script>
-    
 </body>
 
 </html>

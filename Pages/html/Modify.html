@@ -43,6 +43,7 @@
                     <option value="infraestructura">Infraestructura</option>
                 </select>
 
+
                 <div id="buscarIDDiv">
                     <label for="buscarID">Buscar por ID:</label>
                     <input type="text" id="buscarID" name="buscarID" placeholder="Ingrese el ID">
@@ -53,6 +54,14 @@
                 <button type="submit" id="btnModificar" style="display: none;">Modificar</button>
             </form>
         </div>
+
+        <div id="tablaDatos" class="tabla-datos" style="display: none;">
+            <h3>Datos de la entidad seleccionada:</h3>
+            <table id="datosEntidad">
+                <!-- Aquí se mostrarán los datos de la entidad -->
+            </table>
+        </div>
+        
     </div>
 
     <script src="/Pages/JS/ScriptMo.js"></script>

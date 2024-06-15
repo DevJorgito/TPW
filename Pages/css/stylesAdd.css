@@ -9,9 +9,8 @@ body {
     font-family: 'Proxima Nova', sans-serif;
     background-attachment: fixed;
     overflow-y: hidden;
+    background-color: #f2f2f2;
 }
-
-/*-----------------------------------------------------------------------------------------------------------------*/
 
 /* BARRA DE NAVEGACIÓN */
 .navbar {
@@ -29,10 +28,9 @@ body {
     z-index: 1000;
 }
 
-
 .navbar-links {
-    margin-right: 5%; /* Ajusta el margen derecho del encabezado derecho */
-    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+    margin-right: 5%;
+    font-family: 'Cinzel', serif;
     margin-top: 1.8vw;
     display: flex;
 }
@@ -48,23 +46,21 @@ body {
 .navbar-links button {
     border: none;
     background: none;
-    margin-top: 0; /* Ajusta el margen superior del botón */
-    margin-bottom: 0; /* Elimina el margen inferior del botón */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .navbar-links button img {
-    max-height: 3vh; /* Ajusta el alto máximo de la imagen */
+    max-height: 3vh;
 }
 
 .navbar-links a:hover {
-    color: #999; /* Cambia el color del texto al pasar el mouse */
+    color: #999;
 }
 
 .navbar-links button:hover img {
-    filter: brightness(70%); /* Oscurece ligeramente la imagen al pasar el mouse */
+    filter: brightness(70%);
 }
-
-/*-----------------------------------------------------------------------------------------------------------------*/
 
 /* MENÚ DESPLEGABLE */
 .dropdown {
@@ -79,8 +75,8 @@ body {
     min-width: 2.083vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    top: calc(100% + 2px); /* Ajusta la posición vertical para que esté justo debajo del botón */
-    left: 0; /* Ajusta la posición horizontal para que esté alineado con el botón */
+    top: calc(100% + 2px);
+    left: 0;
 }
 
 .dropdown-content a {
@@ -91,21 +87,20 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1; /* Cambia el color de fondo al pasar el mouse */
+    background-color: #f1f1f1;
 }
 
-/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
 .dropbtn:focus + .dropdown-content,
 .dropdown-content:focus-within {
-    display: block; /* Muestra la lista desplegable cuando el botón tiene foco o la lista desplegable tiene un descendiente con foco */
+    display: block;
 }
 
 .dropbtn {
-    width: 2.083vw; /* Define un ancho fijo para el botón */
-    height: 2.083vw; /* Define una altura fija para el botón */
+    width: 2.083vw;
+    height: 2.083vw;
     padding: 0;
     background: none;
-    border: none; /* Elimina el borde del botón */
+    border: none;
     cursor: pointer;
 }
 
@@ -118,13 +113,12 @@ body {
 
 .contenido {
     position: relative;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
 }
-
 .contenido img {
     width: 100%;
     height: auto;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
-
 }
 
 /* BARRA INFERIOR - PIE DE PÁGINA */
@@ -162,66 +156,76 @@ body {
     font-size: 12px;
 }
 
-
-
 /* Estilos adicionales */
-
 .main-container {
-    position: relative;
-    height: 100vh; /* Ajustar al 100% de la altura de la ventana */
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 80vh;
+    padding-top: 100px; /* Añadir espacio superior para compensar la barra de navegación */
+    top: calc(100vh - 60vh); /* Ajusta la posición del formulario */
+
 }
 
 .form-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1;
+    top: 100px; /* Asegura que el formulario esté debajo de la barra de navegación */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: calc(100vh - 200px); /* Ajusta la altura para que el formulario no se superponga con el footer */
+    overflow-y: auto; /* Agrega un scroll vertical si el contenido es demasiado largo */
+    padding: 20px; /* Añade un relleno alrededor del formulario */
 }
 
-.selection,
-.form-fields {
+
+.form-row {
     margin-bottom: 15px;
 }
 
-.form-fields {
-    margin-bottom: 20px;
-    column-count: 2; /* Divide los campos en dos columnas */
-    column-gap: 20px; /* Espacio entre las columnas */
-    width: 100%; /* Ancho del contenedor */
+.form-row label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.form-fields input[type="text"],
-.form-fields select {
-    margin-bottom: 1vw; /* Espacio entre cajas de texto */
-    padding: 0.5vw; /* Relleno dentro de las cajas de texto */
-    border: 1px solid #ccc; /* Borde alrededor de las cajas de texto */
-    border-radius: 5px; /* Bordes redondeados para las cajas de texto */
-    width: 100%; /* Ancho de las cajas de texto */
-    font-size: 1vw; /* Tamaño de fuente relativo */
+.form-row input, .form-row select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-.text{
+button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+.text {
     font-size: 1vw;
-    color:#E0E0E0;
+    color: #E0E0E0;
     font-family: 'Cinzel', serif;
 }
 
 .selection select {
-    width: 100%; /* Ancho del select */
-    padding: 0.5vw; /* Relleno dentro del select */
-    font-size: 1vw; /* Tamaño de fuente */
-    border: 1px solid #ccc; /* Borde del select */
-    border-radius: 5px; /* Bordes redondeados */
-    appearance: none; /* Oculta la flecha predeterminada en el select */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/><path fill="none" d="M0 0h24v24H0z"/></svg>'); /* Añade una flecha personalizada */
-    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
-    background-position: calc(100% - 10px) center; /* Posición de la flecha */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el select */
+    width: 100%;
+    padding: 0.5vw;
+    font-size: 1vw;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/><path fill="none" d="M0 0h24v24H0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    cursor: pointer;
 }
 
 .selection {
@@ -230,26 +234,26 @@ body {
 }
 
 .selection .text {
-    margin-right: 10px; /* Ajusta el margen entre el texto y el select */
+    margin-right: 10px;
 }
 
 .label-bold {
     font-weight: bold;
 }
 
-button {
-    background-color: white; /* Fondo blanco */
-    color: black; /* Texto negro */
-    border: 1px solid black; /* Borde negro de 1px */
-    padding: 10px 20px; /* Padding interno */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambio de cursor al pasar el mouse */
-    transition: background-color 0.3s, color 0.3s; /* Transición suave */
-    border-radius: 5px; /* Bordes redondeados */
+.form-fields {
+    column-count: 2;
+    column-gap: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
-/* Cambiar estilos al pasar el mouse */
-button:hover {
-    background-color: black; /* Fondo negro */
-    color: white; /* Texto blanco */
+.form-fields input[type="text"],
+.form-fields select {
+    margin-bottom: 1vw;
+    padding: 0.5vw;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1vw;
 }
