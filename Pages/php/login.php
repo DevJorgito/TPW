@@ -2,7 +2,7 @@
 include 'config.php';
 
 $dni = $_POST['dni'];
-$clave = md5($_POST['clave']); // Encriptar la contraseña proporcionada por el usuario
+$clave = md5($_POST['clave']);
 
 $stmt = $conn->prepare("SELECT * FROM encuestador WHERE DNI = ?");
 $stmt->bind_param("s", $dni);
@@ -17,13 +17,13 @@ if ($result->num_rows > 0) {
         session_start();
         $_SESSION['dni'] = $dni;
         header("Location: ../../index.html");
-        exit(); 
+        exit();
     } else {
         header("Location: ../../login.html?error=1");
-        exit(); 
+        exit();
     }
 } else {
     header("Location: ../../login.html?error=1");
-    exit(); 
+    exit();
 }
 ?>

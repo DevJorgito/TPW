@@ -1,70 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCN</title>
-    <link rel="stylesheet" href="../css/stylesDelete.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Project/Pages/css/stylesDelete.css">
 </head>
-
 <body>
     <!-- Barra de Navegación -->
     <div class="navbar">
         <div class="logo">GCN</div>
         <div class="navbar-links">
-            <a href="../../index.html">Inicio</a>
-            <a href="Contact.html">Contacto</a>
+            <a href="/Project/index.html">Inicio</a>
+            <a href="/Project/Pages/html/Contact.html">Contacto</a>
             <div class="dropdown">
-                <button class="dropbtn"><img src="../../Img/persona.png" alt="btnperfil" class="perfil"></button>
+                <button class="dropbtn"><img src="/Project/Img/persona.png" alt="btnperfil" class="perfil"></button>
                 <div class="dropdown-content">
-                    <a href="Profile.php">Perfil</a>
+                    <a href="#">Perfil</a>
                     <a href="#" id="logoutBtn" onclick="logout();">Cerrar Sesión</a>
-
                 </div>
             </div>
         </div>
     </div>
 
     <div class="imagen">
-        <img src="../../Img/machu.jpg">
+        <img src="/Project/Img/machu.jpg" alt="Machu Picchu">
     </div>
 
-    <div class="contenido">
-        <div class="subtitulo">
-            <h2>ELIMINAR ELEMENTOS DEL CENSO</h2>
-        </div>
+    <div id="container-imput">
+        <input type="text" id="searchInput" placeholder="Ingrese codigo de hoja de censo">
+    </div>
+
+    <div class="container-table">
+        <table id="censusTable">
+            <thead>
+                <tr>
+                    <th>Numero de cedula</th>
+                    <th>Dirección</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-id="1">
+                    <td>100902</td>
+                    <td>Av Bolgnes #809</td>
+                    <td>2024-05-08</td>
+                </tr>
+                <tr data-id="2">
+                    <td>100903</td>
+                    <td>Av Las Palmeras #101</td>
+                    <td>2024-06-15</td>
+                </tr>
+                <!-- Más filas aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="main-container hidden" id="formContainer">
+        <!-- Contenido y formulario -->
         <div class="form-container">
-            <form id="eliminarForm">
-                <label for="tipoElemento">Selecciona el tipo de elemento que deseas eliminar:</label>
-                <select name="tipo_elemento" id="tipoElemento">
-                    <option value="">Selecciona...</option>
-                    <option value="vivienda">Vivienda</option>
-                    <option value="hogar">Hogar</option>
-                    <option value="persona">Persona</option>
-                </select>
-                <div id="idElementoDiv" style="display: none;">
-                    <label for="idElemento">ID del elemento:</label>
-                    <input type="text" name="id_elemento" id="idElemento" placeholder="ID del elemento">
-                </div>
-                <div id="camposElemento" style="display: none;"></div>
-                <input type="submit" value="Eliminar">
-            </form>
+            <h2 class="agregacion-info">Gestionar Información del censo</h2>
+            <br>
+            <div class="form-fields" id="formFields">
+                <form id="myform">
+                    <h3 class="entity-title">Hoja de Censo</h3>
+                    <div class="form-row">
+                        <label for="numCedula" class="label-bold">Número de Cédula</label>
+                        <input type="text" name="numCedula" id="numCedula">
+                    </div>
+                    <div class="form-row">
+                        <label for="fecha" class="label-bold">Fecha:</label>
+                        <input type="date" name="fecha" id="fecha">
+                    </div>
+
+                    <h3 class="entity-title">Vivienda</h3>
+                    <div class="form-row">
+                        <label for="IDVivienda" class="label-bold">ID Vivienda:</label>
+                        <input type="text" name="IDVivienda" id="IDVivienda">
+                    </div>
+                    <div class="form-row">
+                        <label for="tipoVivienda" class="label-bold">Tipo de Vivienda:</label>
+                        <select name="tipoVivienda" id="tipoVivienda">
+                            <option value="Particular">Particular</option>
+                            <option value="Colectiva">Colectiva</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="condicion" class="label-bold">Condición:</label>
+                        <select name="condicion" id="condicion">
+                            <option value="Ocupada">Ocupada</option>
+                            <option value="Desocupada">Desocupada</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="origenAgua" class="label-bold">Origen del Agua:</label>
+                        <select name="origenAgua" id="origenAgua">
+                            <option value="Red pública">Red pública</option>
+                            <option value="Pozo">Pozo</option>
+                            <option value="Rio">Río</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="tipoBano" class="label-bold">Tipo de Baño:</label>
+                        <select name="tipoBano" id="tipoBano">
+                            <option value="Privado">Privado</option>
+                            <option value="Compartido">Compartido</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="totalHabitaciones" class="label-bold">Total de Habitaciones:</label>
+                        <input type="text" name="totalHabitaciones" id="totalHabitaciones">
+                    </div>
+                    <h3 class="entity-title">Direccion</h3>
+                    <div class="form-row">
+                        <label for="departamento" class="label-bold">Departamento:</label>
+                        <input type="text" name="departamento" id="departamento">
+                    </div>
+                    <div class="form-row">
+                        <label for="provincia" class="label-bold">Provincia:</label>
+                        <input type="text" name="provincia" id="provincia">
+                    </div>
+                    <div class="form-row">
+                        <label for="distrito" class="label-bold">Distrito:</label>
+                        <input type="text" name="distrito" id="distrito">
+                    </div>
+                    <div class="form-row">
+                        <label for="calle" class="label-bold">Calle:</label>
+                        <input type="text" name="calle" id="calle">
+                    </div>
+                    <h3 class="entity-title">Infraestructura</h3>
+                    <div class="form-row">
+                        <label for="materialParedes" class="label-bold">Material de las Paredes:</label>
+                        <select name="materialParedes" id="materialParedes">
+                            <option value="Ladrillo">Ladrillo</option>
+                            <option value="Adobe">Adobe</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="materialTechos" class="label-bold">Material de los Techos:</label>
+                        <select name="materialTechos" id="materialTechos">
+                            <option value="Concreto">Concreto</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Calamina">Calamina</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="materialPisos" class="label-bold">Material de los Pisos:</label>
+                        <select name="materialPisos" id="materialPisos">
+                            <option value="Ceramica">Cerámica</option>
+                            <option value="Madera">Madera</option>
+                            <option value="Tierra">Tierra</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <h3 class="entity-title">Hogar</h3>
+                    <div class="form-row">
+                        <label for="tipoCombustible" class="label-bold">Tipo de Combustible:</label>
+                        <select name="tipoCombustible" id="tipoCombustible">
+                            <option value="Electricidad">Electricidad</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Carbón">Carbón</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="numeroMiembros" class="label-bold">Número de Miembros:</label>
+                        <input type="text" name="numeroMiembros" id="numeroMiembros">
+                    </div>
+
+                    <h3 class="entity-title">Persona</h3>
+                    <div class="form-row">
+                        <label for="dni" class="label-bold">DNI:</label>
+                        <input type="text" name="dni" id="dni">
+                    </div>
+                    <div class="form-row">
+                        <label for="numHogar" class="label-bold">Número de Hogar:</label>
+                        <input type="text" name="numHogar" id="numHogar">
+                    </div>
+                    <div class="form-row">
+                        <label for="numPersona" class="label-bold">Número de Persona:</label>
+                        <input type="text" name="numPersona" id="numPersona">
+                    </div>
+                    <div class="form-row">
+                        <label for="nombres" class="label-bold">Nombres:</label>
+                        <input type="text" name="nombres" id="nombres">
+                    </div>
+                    <div class="form-row">
+                        <label for="apellidos" class="label-bold">Apellidos:</label>
+                        <input type="text" name="apellidos" id="apellidos">
+                    </div>
+                    <div class="form-row">
+                        <label for="sexo" class="label-bold">Sexo:</label>
+                        <select name="sexo" id="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="fechaNacimiento" class="label-bold">Fecha de Nacimiento:</label>
+                        <input type="text" name="fechaNacimiento" id="fechaNacimiento">
+                    </div>
+                    <div class="form-row">
+                        <label for="estadoCivil" class="label-bold">Estado Civil:</label>
+                        <select name="estadoCivil" id="estadoCivil">
+                            <option value="Soltero">Soltero</option>
+                            <option value="Casado">Casado</option>
+                            <option value="Viudo">Viudo</option>
+                            <option value="Divorciado">Divorciado</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="religion" class="label-bold">Religión:</label>
+                        <select name="religion" id="religion">
+                            <option value="Católica">Católica</option>
+                            <option value="Protestante">Protestante</option>
+                            <option value="Judía">Judía</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="nivelEducativo" class="label-bold">Nivel Educativo:</label>
+                        <select name="nivelEducativo" id="nivelEducativo">
+                            <option value="Primaria">Primaria</option>
+                            <option value="Secundaria">Secundaria</option>
+                            <option value="Universitario">Universitario</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="totalHijos" class="label-bold">Total de Hijos:</label>
+                        <input type="text" name="totalHijos" id="totalHijos">
+                    </div>
+
+                    <button type="button" onclick="modifyRecord()">Modificar</button>
+                    <button type="button" onclick="deleteRecord()">Eliminar</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="../JS/ScriptDelete.js"></script>
-    <script src="../JS/ScriptBtn.js"></script>
-
-    <div class="footer">
-        <div class="footer-links">
-            <a href="Policy.html">Política de Privacidad</a>
-        </div>
-        <div class="copyright">
-            Gestor de Censo Nacional - Perú © 2024
-        </div>
-    </div>
-
+    <script src="/Project/Pages/JS/ScriptDelete.js"></script>
 </body>
-
 </html>

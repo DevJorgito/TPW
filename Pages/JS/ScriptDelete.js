@@ -1,46 +1,164 @@
-document.getElementById('tipoElemento').addEventListener('change', function() {
-    var selectedOption = this.value;
-    var idElementoDiv = document.getElementById('idElementoDiv');
-    
-    if (selectedOption !== '') {
-        idElementoDiv.style.display = 'block';
-    } else {
-        idElementoDiv.style.display = 'none';
-        document.getElementById('camposElemento').style.display = 'none';
-    }
-});
+document.addEventListener('DOMContentLoaded', (event) => {
+    const dropdownBtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
 
-document.getElementById('idElemento').addEventListener('blur', function() {
-    var id = this.value;
-    var tipoElemento = document.getElementById('tipoElemento').value;
-    if (id && tipoElemento) {
-        // Aquí realizarías una solicitud a la API para obtener los datos del elemento
-        // Supongamos que tienes una función llamada fetchElementoData que hace esto
-        fetchElementoData(tipoElemento, id);
-    }
-});
+    dropdownBtn.addEventListener('click', () => {
+        dropdownContent.classList.toggle('show');
+    });
 
-function fetchElementoData(tipo, id) {
-    // Simulamos una llamada a la API con datos ficticios
-    var data = {
-        vivienda: { ID_Vivienda: id, Tipo_Vivienda: 'Casa', Condicion: 'Buena', Origen_Agua: 'Público', Tipo_Baño: 'Interno', Total_Habitaciones: 3 },
-        hogar: { Num_Hogar: id, ID_Vivienda: '123', Tipo_Combustible: 'Gas', Num_Miembros: 4 },
-        persona: { Dni: id, Num_Hogar: '123', Num_Persona: 1, Nombres: 'Juan', Apellidos: 'Perez', Sexo: 'M', Fecha_Nacimiento: '1990-01-01', Estado_Civil: 'Soltero', Religion: 'Católico', Nivel_Educativo: 'Secundaria', Total_Hijos: 0 }
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropbtn') && !event.target.matches('.dropbtn img')) {
+            if (dropdownContent.classList.contains('show')) {
+                dropdownContent.classList.remove('show');
+            }
+        }
+    });
+
+    const table = document.getElementById('censusTable');
+    const form = document.getElementById('myform');
+    const formContainer = document.getElementById('formContainer');
+    const searchInput = document.getElementById('searchInput');
+    let selectedRow = null;
+
+    const mockData = {
+        1: {
+            numCedula: "100902",
+            fecha: "2024-05-08",
+            IDVivienda: "V001",
+            tipoVivienda: "Particular",
+            condicion: "Ocupada",
+            origenAgua: "Red pública",
+            tipoBano: "Privado",
+            totalHabitaciones: "4",
+            departamento: "Lima",
+            provincia: "Lima",
+            distrito: "Miraflores",
+            calle: "Av Bolgnes #809",
+            materialParedes: "Ladrillo",
+            materialTechos: "Concreto",
+            materialPisos: "Ceramica",
+            tipoCombustible: "Electricidad",
+            numeroMiembros: "5",
+            dni: "12345678",
+            numHogar: "1",
+            numPersona: "1",
+            nombres: "Juan",
+            apellidos: "Perez",
+            sexo: "Masculino",
+            fechaNacimiento: "1990-01-01",
+            estadoCivil: "Soltero",
+            religion: "Católica",
+            nivelEducativo: "Universitario",
+            totalHijos: "0"
+        },
+        2: {
+            numCedula: "100903",
+            fecha: "2024-06-15",
+            IDVivienda: "V002",
+            tipoVivienda: "Colectiva",
+            condicion: "Desocupada",
+            origenAgua: "Pozo",
+            tipoBano: "Compartido",
+            totalHabitaciones: "3",
+            departamento: "Cusco",
+            provincia: "Cusco",
+            distrito: "San Blas",
+            calle: "Av Las Palmeras #101",
+            materialParedes: "Adobe",
+            materialTechos: "Madera",
+            materialPisos: "Madera",
+            tipoCombustible: "Gas",
+            numeroMiembros: "3",
+            dni: "87654321",
+            numHogar: "2",
+            numPersona: "2",
+            nombres: "Maria",
+            apellidos: "Lopez",
+            sexo: "Femenino",
+            fechaNacimiento: "1985-05-15",
+            estadoCivil: "Casado",
+            religion: "Protestante",
+            nivelEducativo: "Secundaria",
+            totalHijos: "2"
+        }
     };
 
-    var elementoData = data[tipo];
-    var camposElementoDiv = document.getElementById('camposElemento');
-    camposElementoDiv.innerHTML = ''; // Limpiar campos anteriores
+    table.addEventListener('click', (event) => {
+        const targetRow = event.target.closest('tr');
+        if (targetRow && targetRow.dataset.id) {
+            selectedRow = targetRow;
+            const id = targetRow.dataset.id;
+            const data = mockData[id];
+            if (data) {
+                for (const key in data) {
+                    if (form.elements[key]) {
+                        form.elements[key].value = data[key];
+                    }
+                }
+                formContainer.classList.remove('hidden');
+            }
+        }
+    });
 
-    for (var key in elementoData) {
-        if (elementoData.hasOwnProperty(key)) {
-            camposElementoDiv.innerHTML += `
-                <div>
-                    <label for="${key}">${key.replace(/_/g, ' ')}:</label>
-                    <input type="text" id="${key}" name="${key}" value="${elementoData[key]}" disabled>
-                </div>
-            `;
+    window.modifyRecord = function() {
+        if (selectedRow) {
+            const id = selectedRow.dataset.id;
+            if (mockData[id]) {
+                for (const key in mockData[id]) {
+                    if (form.elements[key]) {
+                        mockData[id][key] = form.elements[key].value;
+                    }
+                }
+                selectedRow.cells[0].innerText = form.elements['numCedula'].value;
+                selectedRow.cells[1].innerText = form.elements['calle'].value;
+                selectedRow.cells[2].innerText = form.elements['fecha'].value;
+                alert("Registro modificado exitosamente");
+                formContainer.classList.add('hidden');
+                selectedRow = null;
+                form.reset();
+            }
+        } else {
+            alert("Selecciona una fila para modificar.");
+        }
+    };
+
+    window.deleteRecord = function() {
+        if (selectedRow) {
+            const id = selectedRow.dataset.id;
+            if (mockData[id]) {
+                delete mockData[id];
+                selectedRow.remove();
+                form.reset();
+                formContainer.classList.add('hidden');
+                selectedRow = null;
+                alert("Registro eliminado exitosamente");
+            }
+        } else {
+            alert("Selecciona una fila para eliminar.");
+        }
+    };
+
+    window.logout = function() {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        window.location.href = 'login.html'; 
+    };
+
+    searchInput.addEventListener('input', filterTable);
+
+    function filterTable() {
+        const filter = searchInput.value.toUpperCase();
+        const rows = table.getElementsByTagName('tr');
+        for (let i = 1; i < rows.length; i++) { 
+            const cell = rows[i].getElementsByTagName('td')[0];
+            if (cell) {
+                const txtValue = cell.textContent || cell.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
         }
     }
-    camposElementoDiv.style.display = 'block';
-}
+});

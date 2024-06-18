@@ -25,6 +25,9 @@
         </div>
     </div>
 
+    <div class="imagen">
+        <img src="../../Img/machu.jpg">
+    </div>
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Contenido y formulario -->
@@ -34,6 +37,7 @@
             <br>
             <div class="form-fields" id="formFields">
                 <form action="../php/add.php" method="post" id="myform">
+                    <input type="hidden" name="encuestador_dni" value="<?php session_start(); echo $_SESSION['dni']; ?>">
                     <h3 class="entity-title">Hoja de Censo</h3>
                     <div class="form-row">
                         <label for="numCedula" class="label-bold">Número de Cédula</label>
@@ -45,10 +49,6 @@
                     </div>
 
                     <h3 class="entity-title">Vivienda</h3>
-                    <div class="form-row">
-                        <label for="ID_Vivienda" class="label-bold">ID Vivienda:</label>
-                        <input type="text" name="IDVivienda">
-                    </div>
                     <div class="form-row">
                         <label for="tipoVivienda" class="label-bold">Tipo de Vivienda:</label>
                         <select name="tipoVivienda">
@@ -151,10 +151,6 @@
                         <input type="text" name="dni">
                     </div>
                     <div class="form-row">
-                        <label for="numHogar" class="label-bold">Número de Hogar:</label>
-                        <input type="text" name="numHogar">
-                    </div>
-                    <div class="form-row">
                         <label for="numPersona" class="label-bold">Número de Persona:</label>
                         <input type="text" name="numPersona">
                     </div>
@@ -175,7 +171,7 @@
                     </div>
                     <div class="form-row">
                         <label for="fechaNacimiento" class="label-bold">Fecha de Nacimiento:</label>
-                        <input type="text" name="fechaNacimiento">
+                        <input type="date" name="fechaNacimiento">
                     </div>
                     <div class="form-row">
                         <label for="estadoCivil" class="label-bold">Estado Civil:</label>
@@ -211,6 +207,7 @@
                     <button type="submit" name="submitButton">Enviar</button>
                 </form>
             </div>
+            <div id="message"></div>
         </div>
     </div>
 
@@ -224,6 +221,7 @@
         </div>
     </div>
     <script src="../JS/ScriptBtn.js"></script>
+    <script src="../JS/ScriptAdd.js"></script>
 </body>
 
 </html>

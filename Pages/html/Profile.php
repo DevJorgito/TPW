@@ -1,8 +1,7 @@
 <?php
 session_start();
-include '../php/config.php'; // Incluye tu archivo de configuración de la base de datos
+include '../php/config.php';
 
-// Verifica si el usuario está logeado
 if (!isset($_SESSION['dni'])) {
     header("Location: ../../login.html");
     exit();
@@ -10,7 +9,6 @@ if (!isset($_SESSION['dni'])) {
 
 $dni = $_SESSION['dni'];
 
-// Obtén los datos del usuario desde la base de datos
 $stmt = $conn->prepare("SELECT * FROM encuestador WHERE DNI = ?");
 $stmt->bind_param("s", $dni);
 $stmt->execute();

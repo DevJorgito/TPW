@@ -31,8 +31,8 @@ body {
 
 
 .navbar-links {
-    margin-right: 5%; /* Ajusta el margen derecho del encabezado derecho */
-    font-family: 'Cinzel', serif; /* Cambia la fuente del logo a Cinzel */
+    margin-right: 5%; 
+    font-family: 'Cinzel', serif; 
     margin-top: 1.8vw;
     display: flex;
 }
@@ -48,20 +48,20 @@ body {
 .navbar-links button {
     border: none;
     background: none;
-    margin-top: 0; /* Ajusta el margen superior del botón */
-    margin-bottom: 0; /* Elimina el margen inferior del botón */
+    margin-top: 0; 
+    margin-bottom: 0; 
 }
 
 .navbar-links button img {
-    max-height: 3vh; /* Ajusta el alto máximo de la imagen */
+    max-height: 3vh; 
 }
 
 .navbar-links a:hover {
-    color: #999; /* Cambia el color del texto al pasar el mouse */
+    color: #999; 
 }
 
 .navbar-links button:hover img {
-    filter: brightness(70%); /* Oscurece ligeramente la imagen al pasar el mouse */
+    filter: brightness(70%); 
 }
 
 /*-----------------------------------------------------------------------------------------------------------------*/
@@ -79,8 +79,8 @@ body {
     min-width: 2.083vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    top: calc(100% + 2px); /* Ajusta la posición vertical para que esté justo debajo del botón */
-    left: 0; /* Ajusta la posición horizontal para que esté alineado con el botón */
+    top: calc(100% + 2px);
+    left: 0; 
 }
 
 .dropdown-content a {
@@ -91,21 +91,21 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1; /* Cambia el color de fondo al pasar el mouse */
+    background-color: #f1f1f1; 
 }
 
-/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+
 .dropbtn:focus + .dropdown-content,
 .dropdown-content:focus-within {
-    display: block; /* Muestra la lista desplegable cuando el botón tiene foco o la lista desplegable tiene un descendiente con foco */
+    display: block; 
 }
 
 .dropbtn {
-    width: 2.083vw; /* Define un ancho fijo para el botón */
-    height: 2.083vw; /* Define una altura fija para el botón */
+    width: 2.083vw;
+    height: 2.083vw; 
     padding: 0;
     background: none;
-    border: none; /* Elimina el borde del botón */
+    border: none; 
     cursor: pointer;
 }
 
@@ -118,7 +118,7 @@ body {
 
 .contenido {
     position: relative;
-    z-index: 1; /* Asegura que el contenido esté delante de la imagen de fondo */
+    z-index: 1; 
 }
 
 .contenido img {
@@ -258,37 +258,37 @@ body {
 .customer-service,
 .experience-section {
     position: absolute;
-    width: 100%; /* Ajusta el ancho según sea necesario */
-    top: 50%; /* Coloca el elemento en la mitad superior de la pantalla */
-    transform: translateY(-50%); /* Lo desplaza hacia arriba la mitad de su altura */
-    z-index: 2; /* Asegura que estén delante de la imagen de fondo */
-    text-align: center; /* Opcional: centrar el contenido */
+    width: 100%; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    z-index: 2; 
+    text-align: center; 
 }
 
 
 .help-section {
     background-color: rgba(255, 255, 255, 0);
-    border: none; /* Asegura que no haya borde */
+    border: none;
     padding: 20px 0;
     text-align: center;
-    box-shadow: none; /* Elimina cualquier sombra */
+    box-shadow: none; 
     position: absolute;
-    width: 100%; /* Ajusta el ancho según sea necesario */
-    top: 20%; /* Ajusta la posición vertical de la sección de ayuda */
-    transform: translateY(-50%); /* Lo desplaza hacia arriba la mitad de su altura */
-    z-index: 2; /* Asegura que estén delante de la imagen de fondo */
-    text-align: center; /* Opcional: centrar el contenido */
+    width: 100%; 
+    top: 20%; 
+    transform: translateY(-50%); 
+    z-index: 2; 
+    text-align: center; 
 }
 
 
 .customer-service {
     border: none;
-    top: 50%; /* Ajusta la posición vertical de la sección de atención al cliente */
+    top: 50%; 
 }
 
 .experience-section {
     background-color: rgba(255, 255, 255, 0);
-    top: 80%; /* Ajusta la posición vertical de la sección de experiencia */
+    top: 80%;
     color: #fff;
 }
 
@@ -301,5 +301,5 @@ body {
 }
 
 .customer-service h2 {
-    color: #fff; /* Cambiar el color del texto a blanco */
+    color: #fff;
 }

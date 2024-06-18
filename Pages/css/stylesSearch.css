@@ -9,7 +9,7 @@ body {
     font-family: 'Proxima Nova', sans-serif;
     background-attachment: fixed;
     overflow-y: hidden;
-    padding-bottom: 20px; /* Ajusta este valor para cambiar la separación inferior */
+    padding-bottom: 20px; 
 }
 
 /* BARRA DE NAVEGACIÓN */
@@ -128,9 +128,9 @@ body {
     display: flex;
     width: 90%;
     justify-content: space-between;
-    gap: 1%; /* Reducir espacio horizontal entre tablas */
-    height: 80vh; /* Ajustar la altura del contenedor de tablas */
-    margin-bottom: 10px; /* Ajusta este valor para cambiar la separación inferior */
+    gap: 1%; 
+    height: 80vh; 
+    margin-bottom: 10px;
 }
 
 .tabla-contenedor {
@@ -139,18 +139,18 @@ body {
     border-radius: 5px;
     padding: 20px;
     text-align: left;
-    max-height: calc(100% - 40px); /* Ajusta este valor según el margen y padding */
-    overflow-y: auto; /* Asegurar el scroll dentro de la tabla */
+    max-height: calc(100% - 40px); 
+    overflow-y: auto; 
     margin-bottom: 35px;
 }
 
 .izquierda {
     width: 15%;
     margin-right: 1%;
-    max-height: 100%; /* Limitar la altura máxima */
-    overflow-y: auto; /* Permitir scroll vertical */
-    padding-right: 10px; /* Añadir padding para el scroll */
-    border-bottom-width: 1px; /* Ajusta el tamaño del borde inferior si es necesario */
+    max-height: 100%; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    border-bottom-width: 1px; 
 }
 
 .derecha {
@@ -158,13 +158,13 @@ body {
 }
 
 .tabla.derecha th {
-    font-size: 2em; /* Ajusta este valor al tamaño deseado */
-    font-weight: bold; /* Puedes añadir esto para hacer el texto en negrita */
+    font-size: 2em;
+    font-weight: bold; 
 }
 
 .tabla td, .tabla th {
     padding: 17px;
-    border-bottom: 1px solid #ddd; /* Ajusta este valor para cambiar el tamaño del borde */
+    border-bottom: 1px solid #ddd; 
     cursor: pointer;
 }
 
@@ -271,20 +271,20 @@ body {
 
 .tabla-derecha th:nth-child(1),
 .tabla-derecha td:nth-child(1) {
-    width: 8%; /* Ajusta el tamaño de la columna "Año" */
+    width: 8%; 
 }
 
 .tabla-derecha th:nth-child(2),
 .tabla-derecha td:nth-child(2) {
-    width: 30%; /* Ajusta el tamaño de la columna "Nombre" */
+    width: 30%; 
 }
 
 .tabla-derecha th:nth-child(3),
 .tabla-derecha td:nth-child(3) {
-    width: 20%; /* Ajusta el tamaño de la columna "Localidad" */
+    width: 20%; 
 }
 
 .tabla-derecha th:nth-child(4),
 .tabla-derecha td:nth-child(4) {
-    width: 10%; /* Ajusta el tamaño de la columna "Resultado" */
+    width: 10%; 
 }

@@ -10,6 +10,7 @@ body {
     background-attachment: fixed;
     overflow-y: hidden;
     background-color: #f2f2f2;
+
 }
 
 /* BARRA DE NAVEGACIÓN */
@@ -113,7 +114,7 @@ body {
 
 .contenido {
     position: relative;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+    background-color: rgba(255, 255, 255, 0.5); 
 }
 .contenido img {
     width: 100%;
@@ -161,19 +162,21 @@ body {
     padding: 20px;
     overflow-y: auto;
     max-height: 80vh;
-    padding-top: 100px; /* Añadir espacio superior para compensar la barra de navegación */
-    top: calc(100vh - 60vh); /* Ajusta la posición del formulario */
+    padding-top: 100px; 
+    top: calc(100vh - 60vh);
 
 }
 
 .form-container {
     position: absolute;
-    top: 100px; /* Asegura que el formulario esté debajo de la barra de navegación */
+    top: 100px; 
     left: 0;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: calc(100vh - 200px); /* Ajusta la altura para que el formulario no se superponga con el footer */
-    overflow-y: auto; /* Agrega un scroll vertical si el contenido es demasiado largo */
-    padding: 20px; /* Añade un relleno alrededor del formulario */
+    width: 100%; 
+    height: calc(100vh - 200px);
+    overflow-y: auto; 
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #E0E0E0;
 }
 
 
@@ -256,4 +259,20 @@ button:hover {
     border-radius: 5px;
     width: 100%;
     font-size: 1vw;
+}
+
+.imagen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("../../Img/machu.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.imagen img{
+    width: 100%;
+    height: auto;
 }
