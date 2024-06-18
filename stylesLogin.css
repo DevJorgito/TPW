@@ -205,3 +205,8 @@ input::placeholder{
     color: #999; /* Cambia el color del texto al pasar el mouse */
     
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
