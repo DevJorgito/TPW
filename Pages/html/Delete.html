@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar Elementos</title>
-    <link rel="stylesheet" href="/Pages/css/stylesDelete.css">
+    <title>GCN</title>
+    <link rel="stylesheet" href="../css/stylesDelete.css">
 </head>
+
 <body>
     <!-- Barra de Navegación -->
     <div class="navbar">
         <div class="logo">GCN</div>
         <div class="navbar-links">
-            <a href="/index.html">Inicio</a>
-            <a href="/Pages/html/Contact.html">Contacto</a>
+            <a href="../../index.html">Inicio</a>
+            <a href="Contact.html">Contacto</a>
             <div class="dropdown">
-                <button class="dropbtn"><img src="/Img/persona.png" alt="btnperfil" class="perfil"></button>
+                <button class="dropbtn"><img src="../../Img/persona.png" alt="btnperfil" class="perfil"></button>
                 <div class="dropdown-content">
-                    <a href="/Pages/html/Profile.html">Perfil</a>
-                    <a href="#" id="logoutBtn">Cerrar Sesión</a>
+                    <a href="Profile.html">Perfil</a>
+                    <a href="#" id="logoutBtn" onclick="logout();">Cerrar Sesión</a>
+
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="imagen">
+        <img src="../../Img/machu.jpg">
     </div>
 
     <div class="contenido">
         <div class="subtitulo">
             <h2>ELIMINAR ELEMENTOS DEL CENSO</h2>
         </div>
-
         <div class="form-container">
             <form id="eliminarForm">
                 <label for="tipoElemento">Selecciona el tipo de elemento que deseas eliminar:</label>
@@ -47,16 +53,18 @@
         </div>
     </div>
 
-    <script src="/Pages/JS/ScriptDelete.js"></script>
-    <script src="/Pages/JS/ScriptBtn.js"></script>
+    <script src="../JS/ScriptDelete.js"></script>
+    <script src="../JS/ScriptBtn.js"></script>
 
     <div class="footer">
         <div class="footer-links">
-            <a href="../html/Policy.html">Política de Privacidad</a>
+            <a href="Policy.html">Política de Privacidad</a>
         </div>
         <div class="copyright">
             Gestor de Censo Nacional - Perú © 2024
         </div>
     </div>
+
 </body>
+
 </html>

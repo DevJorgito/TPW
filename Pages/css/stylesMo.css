@@ -107,6 +107,24 @@ body {
     background: url('/Img/machu.jpg') no-repeat center center/cover;
 }
 
+.imagen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
+    background-size: cover; /* Ajustar la imagen para cubrir todo el contenedor */
+    background-attachment: fixed; /* Hacer que la imagen de fondo sea fija */
+}
+
+.imagen img{
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/machu.jpg");
+
+}
+
 .subtitulo {
     text-align: center;
     color: #FFFFFF;

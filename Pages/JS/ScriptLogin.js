@@ -6,7 +6,7 @@ function validarFormulario() {
     // Por ahora, asumamos que el código es "usuario" y la contraseña es "contraseña"
     if (codigo === "usuario" && contraseña === "contraseña") {
       // Redirigir al usuario a index.html
-      window.location.href = "/index.html";
+      window.location.href = "index.html";
       return false; 
     } else {
       alert("Código o contraseña incorrectos");

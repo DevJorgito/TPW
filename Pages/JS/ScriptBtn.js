@@ -15,14 +15,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const logoutBtn = document.getElementById('logoutBtn');
+const baseRedirectUrl = '../../'; // Ruta base para la redirección
 
-    logoutBtn.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+function logout() {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
 
-        // Lógica para cerrar la sesión y redirigir al usuario al inicio de sesión
-        localStorage.removeItem('isLoggedIn'); // Eliminar el indicador de inicio de sesión
-        window.location.href = '/login.html'; // Redirigir al usuario al inicio de sesión
-    });
-});
+    // Verificar si la página actual es el index.html
+    if (window.location.pathname.endsWith('index.html')) {
+        window.location.href = 'login.html'; // Redirigir al login.html dentro de la carpeta html
+    } else {
+        window.location.href = baseRedirectUrl + 'login.html'; // Redirigir al login.html fuera de la carpeta html
+    }
+}

@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php'; // Incluye el archivo de conexión a la base de datos
+include 'config.php'; // Incluye el archivo de conexión a la base de datos
 
 // Verificar si se han enviado los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,28 +30,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Material_Pisos = isset($_POST['materialPisos']) ? $_POST['materialPisos'] : "";
     $Tipo_Combustible = isset($_POST['tipoCombustible']) ? $_POST['tipoCombustible'] : "";
     $Num_Miembros = isset($_POST['numeroMiembros']) ? $_POST['numeroMiembros'] : "";
+    $Num_Cedula = isset($_POST['numCedula']) ? $_POST['numCedula'] : "";
+    $Fecha = isset($_POST['fecha']) ? $_POST['fecha'] : "";
 
-    // Insertar datos en las tablas correspondientes
-    $sql_persona = "INSERT INTO persona (Dni, Num_Hogar, Num_Persona, Nombres, Apellidos, Sexo, Fecha_Nacimiento, Estado_Civil, Religion, Nivel_Educativo, Total_Hijos) VALUES ('$Dni', '$Num_Hogar', '$Num_Persona', '$Nombres', '$Apellidos', '$Sexo', '$Fecha_Nacimiento', '$Estado_Civil', '$Religion', '$Nivel_Educativo', '$Total_Hijos')";
-    $sql_vivienda = "INSERT INTO vivienda (ID_Vivienda, Tipo_Vivienda, Condicion, Origen_Agua, Tipo_Baño, Total_Habitaciones) VALUES ('$ID_Vivienda', '$Tipo_Vivienda', '$Condicion', '$Origen_Agua', '$Tipo_Baño', '$Total_Habitaciones')";
-    $sql_direccion = "INSERT INTO direccion (ID_Vivienda, Departamento, Provincia, Distrito, Calle) VALUES ('$ID_Vivienda', '$Departamento', '$Provincia', '$Distrito', '$Calle')";
-    $sql_infraestructura = "INSERT INTO infraestructura (ID_Vivienda, Material_Paredes, Material_Techos, Material_Pisos) VALUES ('$ID_Vivienda', '$Material_Paredes', '$Material_Techos', '$Material_Pisos')";
-    $sql_hogar = "INSERT INTO hogar (Num_Hogar, ID_Vivienda, Tipo_Combustible, Num_Miembros) VALUES ('$Num_Hogar', '$ID_Vivienda', '$Tipo_Combustible', '$Num_Miembros')";
+    // Iniciar la transacción
+    mysqli_begin_transaction($conn);
 
-    // Ejecutar las consultas SQL
-    if ($conn->query($sql_persona) === TRUE &&
-        $conn->query($sql_vivienda) === TRUE &&
-        $conn->query($sql_direccion) === TRUE &&
-        $conn->query($sql_infraestructura) === TRUE &&
-        $conn->query($sql_hogar) === TRUE) {
-        echo "Datos agregados exitosamente";
-    } else {
-        echo "Error al agregar datos: " . $conn->error;
+    try {
+        // Insertar datos en las tablas correspondientes
+        $sql_vivienda = "INSERT INTO vivienda (ID_Vivienda, Tipo_Vivienda, Condicion, Origen_Agua, Tipo_Baño, Total_Habitaciones) VALUES ('$ID_Vivienda', '$Tipo_Vivienda', '$Condicion', '$Origen_Agua', '$Tipo_Baño', '$Total_Habitaciones')";
+        $sql_direccion = "INSERT INTO direccion (ID_Vivienda, Departamento, Provincia, Distrito, Calle) VALUES ('$ID_Vivienda', '$Departamento', '$Provincia', '$Distrito', '$Calle')";
+        $sql_infraestructura = "INSERT INTO infraestructura (ID_Vivienda, Material_Paredes, Material_Techos, Material_Pisos) VALUES ('$ID_Vivienda', '$Material_Paredes', '$Material_Techos', '$Material_Pisos')";
+        $sql_hogar = "INSERT INTO hogar (Num_Hogar, ID_Vivienda, Tipo_Combustible, Num_Miembros) VALUES ('$Num_Hogar', '$ID_Vivienda', '$Tipo_Combustible', '$Num_Miembros')";
+        $sql_hojacenso = "INSERT INTO hojacenso (Num_Cedula, Fecha) VALUES ('$Num_Cedula', '$Fecha')";
+
+        // Ejecutar las consultas
+        mysqli_query($conn, $sql_vivienda);
+        mysqli_query($conn, $sql_direccion);
+        mysqli_query($conn, $sql_infraestructura);
+        mysqli_query($conn, $sql_hogar);
+        mysqli_query($conn, $sql_hojacenso);
+
+        // Verificar si el Num_Hogar existe en la tabla hogar
+        $hogar_existente = mysqli_query($conn, "SELECT Num_Hogar FROM hogar WHERE Num_Hogar = '$Num_Hogar'");
+        if(mysqli_num_rows($hogar_existente) == 0) {
+            // Si no existe, insertar un nuevo registro en la tabla hogar
+            mysqli_query($conn, "INSERT INTO hogar (Num_Hogar, ID_Vivienda, Tipo_Combustible, Num_Miembros) VALUES ('$Num_Hogar', '$ID_Vivienda', '$Tipo_Combustible', '$Num_Miembros')");
+        }
+
+        // Insertar datos en la tabla persona
+        $sql_persona = "INSERT INTO persona (Dni, Num_Hogar, Num_Persona, Nombres, Apellidos, Sexo, Fecha_Nacimiento, Estado_Civil, Religion, Nivel_Educativo, Total_Hijos) VALUES ('$Dni', '$Num_Hogar', '$Num_Persona', '$Nombres', '$Apellidos', '$Sexo', '$Fecha_Nacimiento', '$Estado_Civil', '$Religion', '$Nivel_Educativo', '$Total_Hijos')";
+        mysqli_query($conn, $sql_persona);
+
+        // Confirmar la transacción
+        mysqli_commit($conn);
+        echo "Datos insertados correctamente.";
+    } catch (Exception $e) {
+        // Si ocurre algún error, deshacer la transacción
+        mysqli_rollback($conn);
+        echo "Error al insertar los datos: " . $e->getMessage();
     }
 } else {
-    echo "Error: No se han enviado datos del formulario.";
+    echo "No se han recibido datos del formulario.";
 }
-
-// Cerrar la conexión
-$conn->close();
 ?>
