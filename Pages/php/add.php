@@ -58,13 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ID_Vivienda = $row['ID_Vivienda'];
         }
 
-        $sql_get_hogar_id = "SELECT Hogar_ID FROM Hogar WHERE ID_Vivienda = '$ID_Vivienda'";
-        $result = mysqli_query($conn, $sql_get_hogar_id);
+        $sql_get_num_hogar = "SELECT Num_Hogar FROM Hogar WHERE ID_Vivienda = '$ID_Vivienda'";
+        $result = mysqli_query($conn, $sql_get_num_hogar);
         $row = mysqli_fetch_assoc($result);
-        $Hogar_ID = $row['Hogar_ID'];
+        $Num_Hogar = $row['Num_Hogar']; // Usar Num_Hogar en lugar de Hogar_ID
 
-        $sql_insert_persona = "INSERT INTO Persona (Dni, Hogar_ID, Num_Persona, Nombres, Apellidos, Sexo, Fecha_Nacimiento, Estado_Civil, Religion, Nivel_Educativo, Total_Hijos) 
-                               VALUES ('$Dni', '$Hogar_ID', '$Num_Persona', '$Nombres', '$Apellidos', '$Sexo', '$Fecha_Nacimiento', '$Estado_Civil', '$Religion', '$Nivel_Educativo', '$Total_Hijos')";
+        $sql_insert_persona = "INSERT INTO Persona (Dni, Num_Hogar, Num_Persona, Nombres, Apellidos, Sexo, Fecha_Nacimiento, Estado_Civil, Religion, Nivel_Educativo, Total_Hijos) 
+                               VALUES ('$Dni', '$Num_Hogar', '$Num_Persona', '$Nombres', '$Apellidos', '$Sexo', '$Fecha_Nacimiento', '$Estado_Civil', '$Religion', '$Nivel_Educativo', '$Total_Hijos')";
         mysqli_query($conn, $sql_insert_persona);
 
         $sql_insert_hojacenso = "INSERT INTO HojaCenso (Num_Cedula, Fecha, DNI, ID_Vivienda) 
@@ -74,8 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_commit($conn);
         http_response_code(200);
         echo "<script>alert('Datos ingresados correctamente'); window.location.href = '../html/add.php';</script>";
-    exit();
-
     } catch (mysqli_sql_exception $exception) {
         mysqli_rollback($conn);
         throw $exception;
